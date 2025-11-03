@@ -36,7 +36,7 @@ FinGPT is an intelligent financial assistant chatbot built with Streamlit that h
 
 ## Prerequisites
 
-- Python 3.7 or higher
+- Python 3.8 or higher
 - Hugging Face API token (for AI model access)
 - Microphone (optional, for voice input)
 
@@ -50,8 +50,10 @@ cd FinGPT
 
 2. Install required dependencies:
 ```bash
-pip install streamlit huggingface-hub python-dotenv pandas yfinance gtts speechrecognition plotly
+pip install streamlit huggingface-hub python-dotenv pandas yfinance gtts speechrecognition plotly pyaudio
 ```
+
+Note: `pyaudio` is required for microphone support. On some systems, you may need to install additional system dependencies first.
 
 3. Create a `.env` file in the project root and add your Hugging Face API token:
 ```
@@ -92,8 +94,8 @@ Use the sidebar to:
 ```
 FinGPT/
 ├── basic_ai_template.py      # Main Streamlit application
-├── tune_data.txt              # Fine-tuning data for the AI model
-├── fine_tuning_data.txt       # Additional training data
+├── tune_data.txt              # Pre-loaded fine-tuning data (loaded at startup)
+├── fine_tuning_data.txt       # User-uploaded training data (created from UI uploads)
 ├── bot_score.csv              # Sample CSV data (fitness scores and discounts)
 ├── data.csv                   # User-uploaded CSV data storage
 ├── .env                       # Environment variables (not in repo)
